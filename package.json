@@ -1,0 +1,29 @@
+{
+  "name": "barterx",
+  "version": "1.0.0",
+  "description": "Senior Design project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kcnaresh13/BarterX.git"
+  },
+  "author": "Naresh Kc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kcnaresh13/BarterX/issues"
+  },
+  "homepage": "https://github.com/kcnaresh13/BarterX#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
