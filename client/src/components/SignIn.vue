@@ -69,7 +69,12 @@ export default {
     left: -100%;
     height: 100%;
     width: 200%;
-    background: linear-gradient(to bottom right, rgb(37, 49, 214), #936c00);
+    background: rgb(186, 153, 45);
+    background: linear-gradient(
+      90deg,
+      rgba(186, 153, 45, 1) 15%,
+      rgba(39, 116, 126, 1) 67%
+    );
     color: #fff;
     transform: translateX(0);
     transition: transform 0.5s ease-in-out;
