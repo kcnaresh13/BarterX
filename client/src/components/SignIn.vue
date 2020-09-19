@@ -1,6 +1,5 @@
 <template>
-  <article>
-    <!-- <div class="main-container"> -->
+  <article class="main-container">
     <div class="container" :class="{ 'sign-up-active': signUp }">
       <div class="overlay-container">
         <div class="overlay">
@@ -34,7 +33,6 @@
         <button>Sign In</button>
       </form>
     </div>
-    <!-- </div> -->
   </article>
 </template>
 
@@ -50,12 +48,10 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  min-height: 100vh;
-  min-width: 100vw;
-  width: 768px;
-  height: 550px;
+  position: relative;
+  width: 688px;
+  height: 400px;
   border-radius: 10px;
-  overflow: hidden;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
   background: linear-gradient(to bottom, #efefef, #ccc);
   .overlay-container {
@@ -215,3 +211,4 @@ form {
   }
 }
 </style>
+

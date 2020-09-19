@@ -1,31 +1,53 @@
 <template>
   <div id="app">
-    <HelloWorld msg="This is our helloWorld"/>
-    <SignIn/>
+    <Header />
+    <SignIn />
+    <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import SignIn from './components/SignIn.vue'
-
+import Header from "./components/Header.vue";
+import SignIn from "./components/SignIn.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld,
-    SignIn
-  }
-}
+    Header,
+    SignIn,
+    Footer,
+  },
+};
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100%;
+  min-width: 100%;
+  background: rgb(39, 116, 126);
+  background: linear-gradient(
+    90deg,
+    rgba(39, 116, 126, 1) 23%,
+    rgba(22, 46, 128, 1) 100%
+  );
+  background-size: cover;
+}
+
 #app {
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
