@@ -4,28 +4,25 @@ const url = 'api/info/';
 
 class InfoService {
     static getInfo(){
-        return new Promise(async (resolve, reject) => {
-            try{
-                const res = await axios.get(url);
-                const data = res.data;
-                resolve(
-                    data.map(info => ({
-                        ...info,
-                        createdAt: new Date(info.createdAt)
-                    }))
-                );
-            }catch(err){
-                reject(err);
-            }
-        })
+        console.log(url)
+                axios.get(url)
+                .then(res => (this.info = res.data))
+                return this.info
+        
     }
 
     static insertInfo(username, email, password){
-        return axios.post(url, {
-            username,
-            email,
-            password
-        })
+       
+
+         axios.post(url,
+            {
+                "userName": username,
+                "email": email,
+                "password": password
+                
+            }
+            
+        )
 
     }
 

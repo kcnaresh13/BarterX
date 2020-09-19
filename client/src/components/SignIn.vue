@@ -18,31 +18,90 @@
       <form class="sign-up" action="#">
         <h2>Create login</h2>
         <div>Use your Hofstra email for registration</div>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <input type="password" placeholder="Re-type Password" />
-        <button>Sign Up</button>
+        <input type="text" placeholder="Username" v-model="username" value ="username"/>
+        <input type="email" placeholder="Email" v-model="email" value ="email"/>
+        <input type="password" placeholder="Password" v-model="password" value="password" />
+        <input type="password" placeholder="Re-type Password" v-model="rePassword" value="rePassword" />
+        <button v-on:click="createInfo()">Sign Up</button>
+        <label> {{signUpMessage}}</label>
       </form>
       <form class="sign-in" action="#">
         <h2>Sign In</h2>
         <div>Use your account</div>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
+        <input type="email" placeholder="Email" v-model="email" value="email" />
+        <input type="password" placeholder="Password" v-model="password" value ="password"/>
         <a href="#">Forgot your password?</a>
-        <button>Sign In</button>
+        <button v-on:click="signIn()">Sign In</button>
+        <label>{{signInMessage}}</label>
       </form>
     </div>
   </article>
 </template>
 
 <script>
+import InfoService from '../Service/InfoService';
+import axios from 'axios';
+
+const url = 'api/info/';
+
 export default {
   data: () => {
     return {
       signUp: false,
-    };
+      info: [],
+      username: '',
+      email: '',
+      password: '',
+      rePassword: '',
+      signInMessage: '',
+      signUpMessage: ''
+    }
   },
+    async created(){
+    console.log("created")
+  },
+  methods: {
+     async signIn() {
+       await axios.get(url).then(res => (this.info = res.data))
+    
+     for(var i=0; i<this.info.length; i++){
+      var current = this.info[i]
+     if((current.email == this.email) && (current.password == this.password)){
+          this.signInMessage= 'Congratulations, you are signed in !!'
+          break;
+     }
+     else{
+          this.signInMessage= 'Your email or password is incorrect. Please try again !'
+
+        }
+     }
+        
+    },
+
+    async createInfo() {
+      await axios.get(url).then(res => (this.info = res.data))
+      
+      if(this.password == this.rePassword){
+     for(var i=0; i<this.info.length; i++){
+        var current = this.info[i]
+        if(current.email == this.email){
+        this.signUpMessage = "Email address already exist. Please sign in using this email"
+        break;
+     }
+     }
+      await InfoService.insertInfo(this.username, this.email, this.password)
+     }
+     else{
+       this.signUpMessage = 'Password doesnot match'
+     }
+
+    },
+      async deleteInfo(id) {
+      await InfoService.deleteInfo(id)
+      this.info = await InfoService.getInfo();
+    }
+
+  }
 };
 </script>
 
