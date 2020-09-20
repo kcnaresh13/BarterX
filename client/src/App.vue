@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <Header />
+    <HomepageBody /> 
     <SignIn />
     <Footer />
+    
   </div>
 </template>
 
@@ -10,6 +12,7 @@
 import Header from "./components/Header.vue";
 import SignIn from "./components/SignIn.vue";
 import Footer from "./components/Footer.vue";
+import HomepageBody from "./components/HomepageBody.vue";
 
 export default {
   name: "App",
@@ -17,6 +20,7 @@ export default {
     Header,
     SignIn,
     Footer,
+    HomepageBody,
   },
 };
 </script>
