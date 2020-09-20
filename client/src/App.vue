@@ -1,22 +1,30 @@
 <template>
   <div id="app">
     <Header />
-    <SignIn />
+    <!--<SignIn /> -->
+    <PostPage />
     <Footer />
+    
+
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-import SignIn from "./components/SignIn.vue";
+import PostPage from "./components/PostPage.vue";
+//import SignIn from "./components/SignIn.vue";
 import Footer from "./components/Footer.vue";
+
+
 
 export default {
   name: "App",
   components: {
     Header,
-    SignIn,
+    //SignIn,
+    PostPage,
     Footer,
+    
   },
 };
 </script>
