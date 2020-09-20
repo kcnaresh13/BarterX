@@ -1,21 +1,27 @@
 <template>
   <div id="app">
     <Header />
+    <!-- <HomepageBody /> -->
     <SignIn />
+    <!-- <Listings /> -->
     <Footer />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
+// import HomepageBody from "./components/HomepageBody.vue";
 import SignIn from "./components/SignIn.vue";
+// import Listings from "./components/Listings.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
     Header,
+    // HomepageBody,
     SignIn,
+    // Listings,
     Footer,
   },
 };
@@ -41,7 +47,7 @@ body {
 
 #app {
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
