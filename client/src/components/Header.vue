@@ -63,7 +63,7 @@ header {
   }
   display: flex;
   width: 100%;
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
   clear: both;
   position: sticky;
   top: 0;

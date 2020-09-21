@@ -112,6 +112,7 @@ export default {
 
 <style lang="scss" >
 .container {
+  margin-top: 5%;
   display: block;
   margin-bottom: 8%;
   position: relative;

@@ -5,7 +5,6 @@
     <!-- <SignIn /> -->
     <!-- <Listings /> -->
     <Footer />
-    
   </div>
 </template>
 
