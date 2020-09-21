@@ -1,26 +1,28 @@
 <template>
   <header class="navigation">
-    <ul>
-      <li>Home</li>
-      <li>Buy</li>
-      <li>Sell</li>
-      <li>Barter</li>
-      <li>About</li>
-      <li>Other</li>
-    </ul>
+    <div class="logo">
+      <img src="../assets/logo.png" width="180px" height="130px" alt />
+    </div>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>Buy</li>
+        <li>Sell</li>
+        <li>Barter</li>
+        <li>About</li>
+      </ul>
+    </nav>
     <div class="search">
-      <input type="text" placeholder="Search for articles, people or magazines" />
+      <input type="text" placeholder="Search for books, notes, school supplies ....." />
     </div>
     <div class="icons">
       <v-icon style="font-size: 2.6rem;" class="fas fa-shopping-cart" id="shopping"></v-icon>
       <v-btn style="font-size: 2.6rem;" slot="badge" @click="show = !show">
         <v-icon style="font-size: 2.6rem;" class="fas fa-user" id="user"></v-icon>
       </v-btn>
-      <div class="form-popup" v-show="show" id="signIn-SignUp">
-        <div class="menu">
-          <button type="submit" class="btn">Login</button>
-          <button type="button" class="btn cancel">Close</button>
-        </div>
+      <div class="form-popup" v-show="show" id="signin-logout">
+        <button type="submit" class="btn">Login</button>
+        <button type="button" class="btn cancel">Log Out</button>
       </div>
     </div>
   </header>
@@ -38,12 +40,27 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  #signIn-SignUp {
+  #signin-logout {
     display: block;
-    right: 15px;
-    border: 3px solid #f1f1f1;
+    margin-left: 32%;
+    button {
+      &:hover {
+        color: #7ca971;
+      }
+      width: 80px;
+      height: 20px;
+      color: #2c3e50;
+      font-size: 1rem;
+    }
   }
 
+  .logo {
+    margin-right: 80px;
+    margin-left: 20px;
+  }
+  nav {
+    margin-top: 40px;
+  }
   display: flex;
   width: 100%;
   margin-bottom: 50px;
@@ -70,7 +87,7 @@ header {
   }
 
   .search {
-    margin: 0 0 0 25%;
+    margin: 0 0 0 16%;
     position: relative;
     width: 100%;
     max-width: 400px;

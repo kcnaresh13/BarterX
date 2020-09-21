@@ -1,5 +1,5 @@
 <template>
-  <article class="main-container">
+  <main class="main-container">
     <div class="container" :class="{ 'sign-up-active': signUp }">
       <div class="overlay-container">
         <div class="overlay">
@@ -9,104 +9,111 @@
             <button class="invert" id="signIn" @click="signUp = !signUp">Sign In</button>
           </div>
           <div class="overlay-right">
-            <h2>Hello, Friend!</h2>
-            <p>Please enter your personal details</p>
+            <h2>Welcome to BarterX</h2>
+            <p>If you don't have an account, feel free to create one.</p>
             <button class="invert" id="signUp" @click="signUp = !signUp">Sign Up</button>
           </div>
         </div>
       </div>
+
       <form class="sign-up" action="#">
         <h2>Create login</h2>
         <div>Use your Hofstra email for registration</div>
-        <input type="text" placeholder="Username" v-model="username" value ="username"/>
-        <input type="email" placeholder="Email" v-model="email" value ="email"/>
+        <input type="text" placeholder="Username" v-model="username" value="username" />
+        <input type="email" placeholder="Email" v-model="email" value="email" />
         <input type="password" placeholder="Password" v-model="password" value="password" />
-        <input type="password" placeholder="Re-type Password" v-model="rePassword" value="rePassword" />
+        <input
+          type="password"
+          placeholder="Re-type Password"
+          v-model="rePassword"
+          value="rePassword"
+        />
         <button v-on:click="createInfo()">Sign Up</button>
-        <label> {{signUpMessage}}</label>
+        <label>{{signUpMessage}}</label>
       </form>
       <form class="sign-in" action="#">
+        <img src="../assets/logo.png" width="150px" height="100px" alt />
         <h2>Sign In</h2>
         <div>Use your account</div>
         <input type="email" placeholder="Email" v-model="email" value="email" />
-        <input type="password" placeholder="Password" v-model="password" value ="password"/>
+        <input type="password" placeholder="Password" v-model="password" value="password" />
         <a href="#">Forgot your password?</a>
         <button v-on:click="signIn()">Sign In</button>
         <label>{{signInMessage}}</label>
       </form>
     </div>
-  </article>
+
+    <!---------------------------Items------------------->
+  </main>
 </template>
 
 <script>
-import InfoService from '../Service/InfoService';
-import axios from 'axios';
+import InfoService from "../Service/InfoService";
+import axios from "axios";
 
-const url = 'api/info/';
+const url = "api/info/";
 
 export default {
   data: () => {
     return {
       signUp: false,
       info: [],
-      username: '',
-      email: '',
-      password: '',
-      rePassword: '',
-      signInMessage: '',
-      signUpMessage: ''
-    }
+      username: "",
+      email: "",
+      password: "",
+      rePassword: "",
+      signInMessage: "",
+      signUpMessage: "",
+    };
   },
-    async created(){
-    console.log("created")
+  async created() {
+    console.log("created");
   },
   methods: {
-     async signIn() {
-       await axios.get(url).then(res => (this.info = res.data))
-    
-     for(var i=0; i<this.info.length; i++){
-      var current = this.info[i]
-     if((current.email == this.email) && (current.password == this.password)){
-          this.signInMessage= 'Congratulations, you are signed in !!'
-          break;
-     }
-     else{
-          this.signInMessage= 'Your email or password is incorrect. Please try again !'
+    async signIn() {
+      await axios.get(url).then((res) => (this.info = res.data));
 
+      for (var i = 0; i < this.info.length; i++) {
+        var current = this.info[i];
+        if (current.email == this.email && current.password == this.password) {
+          this.signInMessage = "Congratulations, you are signed in !!";
+          break;
+        } else {
+          this.signInMessage =
+            "Your email or password is incorrect. Please try again !";
         }
-     }
-        
+      }
     },
 
     async createInfo() {
-      await axios.get(url).then(res => (this.info = res.data))
-      
-      if(this.password == this.rePassword){
-     for(var i=0; i<this.info.length; i++){
-        var current = this.info[i]
-        if(current.email == this.email){
-        this.signUpMessage = "Email address already exist. Please sign in using this email"
-        break;
-     }
-     }
-      await InfoService.insertInfo(this.username, this.email, this.password)
-     }
-     else{
-       this.signUpMessage = 'Password doesnot match'
-     }
+      await axios.get(url).then((res) => (this.info = res.data));
 
+      if (this.password == this.rePassword) {
+        for (var i = 0; i < this.info.length; i++) {
+          var current = this.info[i];
+          if (current.email == this.email) {
+            this.signUpMessage =
+              "Email address already exist. Please sign in using this email";
+            break;
+          }
+        }
+        await InfoService.insertInfo(this.username, this.email, this.password);
+      } else {
+        this.signUpMessage = "Password doesnot match";
+      }
     },
-      async deleteInfo(id) {
-      await InfoService.deleteInfo(id)
+    async deleteInfo(id) {
+      await InfoService.deleteInfo(id);
       this.info = await InfoService.getInfo();
-    }
-
-  }
+    },
+  },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .container {
+  display: block;
+  margin-bottom: 8%;
   position: relative;
   width: 688px;
   height: 400px;
@@ -128,7 +135,13 @@ export default {
     left: -100%;
     height: 100%;
     width: 200%;
-    background: linear-gradient(to bottom right, rgb(37, 49, 214), #936c00);
+    background: rgb(186, 153, 45);
+    background: rgb(45, 186, 119);
+    background: linear-gradient(
+      90deg,
+      rgba(45, 186, 119, 1) 15%,
+      rgba(39, 116, 126, 1) 67%
+    );
     color: #fff;
     transform: translateX(0);
     transition: transform 0.5s ease-in-out;
@@ -191,6 +204,9 @@ button.invert {
   border-color: #fff;
 }
 form {
+  img {
+    margin-bottom: 10px;
+  }
   position: absolute;
   top: 0;
   display: flex;
@@ -209,7 +225,7 @@ form {
   input {
     background-color: #eee;
     border: none;
-    padding: 8px 15px;
+    padding: 12px 15px;
     margin: 6px 0;
     width: calc(100% - 30px);
     border-radius: 15px;

@@ -22,7 +22,7 @@ footer {
   clear: both;
   background-color: #16162d;
   padding: 2rem 0;
-  margin-top: auto;
+  margin-top: 12%;
 }
 
 p {
