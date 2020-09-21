@@ -17,9 +17,15 @@
 
       <br />
       <h3>ACESSORIES</h3>
-      <img src="https://m.media-amazon.com/images/I/61u1IR857AL._AC_SS350_.jpg" />
+            <br />
 
+      <img src="https://m.media-amazon.com/images/I/61u1IR857AL._AC_SS350_.jpg" />
+      <br />
+      <br />
+      <br />
+      <br />
       <h3>TEXTBOOKS</h3>
+      <br />
       <img src="../assets/bioTextbook.jpg" />
     </div>
 
