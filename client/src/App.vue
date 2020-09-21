@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header />
-    <HomepageBody />
-    <!-- <SignIn /> -->
+    <Header @clicked="onClickChild" />
+    <SignIn v-if="this.currentTab === 'login'"> </SignIn>
+    <HomepageBody v-else />
     <!-- <Listings /> -->
     <Footer />
   </div>
@@ -11,7 +11,7 @@
 <script>
 import Header from "./components/Header.vue";
 import HomepageBody from "./components/HomepageBody.vue";
-// import SignIn from "./components/SignIn.vue";
+import SignIn from "./components/SignIn.vue";
 // import Listings from "./components/Listings.vue";
 import Footer from "./components/Footer.vue";
 
@@ -20,10 +20,22 @@ export default {
   components: {
     Header,
     HomepageBody,
-    // SignIn,
+    SignIn,
     // Listings,
     Footer,
   },
+  data: () => {
+    return {
+    currentTab: 'home',
+    }
+
+  },
+  methods: {
+      onClickChild (value) {
+      this.currentTab = value
+      console.log(this.currentTab)
+      }
+  }
 };
 </script>
 

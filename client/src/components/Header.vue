@@ -15,7 +15,7 @@
     <div class="search">
       <input type="text" placeholder="Search for books, notes, school supplies ....." />
     </div>
-    <div class="icons">
+    <div  @click="onClickButton()" class="icons">
       <v-icon style="font-size: 2.6rem;" class="fas fa-shopping-cart" id="shopping"></v-icon>
       <v-btn style="font-size: 2.6rem;" slot="badge" @click="show = !show">
         <v-icon style="font-size: 2.6rem;" class="fas fa-user" id="user"></v-icon>
@@ -35,6 +35,16 @@ export default {
       show: false,
     };
   },
+     methods: {
+     onClickButton (event) {
+        if(event != 'login')
+        this.$emit('clicked', 'login')
+        else{
+            this.$emit('clicked', 'home')
+
+        }
+     }
+   }
 };
 </script>
 
