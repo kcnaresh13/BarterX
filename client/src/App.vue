@@ -2,7 +2,7 @@
   <div id="app">
     <Header @clicked="onClickChild" />
     <SignIn v-if="this.currentTab === 'login'"> </SignIn>
-    <HomepageBody v-else />
+    <HomepageBody/>
     <!-- <Listings /> -->
     <Footer />
   </div>
@@ -26,14 +26,13 @@ export default {
   },
   data: () => {
     return {
-    currentTab: 'home',
+    currentTab: '',
     }
 
   },
   methods: {
       onClickChild (value) {
       this.currentTab = value
-      console.log(this.currentTab)
       }
   }
 };

@@ -98,6 +98,7 @@ export default {
           }
         }
         await InfoService.insertInfo(this.username, this.email, this.password);
+        this.signUpMessage ="You have successfully registered "
       } else {
         this.signUpMessage = "Password doesnot match";
       }
