@@ -5,7 +5,7 @@
 <p style="text-align:right"> BarterX does allows Hofstra students to trade items of all types with each other. </p> 
       -->
       <img src="https://miro.medium.com/max/5800/1*v7_agl7Ldy4nIHjw-sfvHQ.png"/><br><br><br>
-      <h2>Our program, BarterX allows Hofstra students to trade items of all types with each other.</h2>
+      <h2> BarterX allows Hofstra students to trade items of all types with each other.</h2>
       <br />
 
       <h2>We provide a money back guarantee if any products are not recieved as advertised.</h2> <br><br>
