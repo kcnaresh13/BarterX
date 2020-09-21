@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Header />
-    <HomepageBody /> 
     <!-- <HomepageBody /> -->
     <SignIn />
     <!-- <Listings /> -->
@@ -16,7 +15,6 @@ import Header from "./components/Header.vue";
 import SignIn from "./components/SignIn.vue";
 // import Listings from "./components/Listings.vue";
 import Footer from "./components/Footer.vue";
-import HomepageBody from "./components/HomepageBody.vue";
 
 export default {
   name: "App",
@@ -26,7 +24,6 @@ export default {
     SignIn,
     // Listings,
     Footer,
-    HomepageBody,
   },
 };
 </script>
