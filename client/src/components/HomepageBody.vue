@@ -29,7 +29,7 @@
       <img src="../assets/bioTextbook.jpg" />
     </div>
 
-    <section class="contact" id="contact">
+    <!-- <section class="contact" id="contact">
       <div class="container">
         <div class="section-heading">
           <h1>Contact</h1>
@@ -60,7 +60,7 @@
           <input type="submit" value="Submit" />
         </form>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 
