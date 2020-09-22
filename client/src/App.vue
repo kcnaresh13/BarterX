@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <Header @clicked="onClickChild" />
-        <SignIn v-if="this.currentTab === 'login'"> </SignIn>
-    <HomepageBody v-else />
+       <!-- <SignIn v-if="this.currentTab === 'login'"> </SignIn> -->
+    <!-- <HomepageBody v-else /> -->
+    <PostPage />>
     <!-- <Listings /> -->
     <Footer />
   </div>
@@ -10,8 +11,9 @@
 
 <script>
 import Header from "./components/Header.vue";
-import HomepageBody from "./components/HomepageBody.vue";
-import SignIn from "./components/SignIn.vue";
+//import HomepageBody from "./components/HomepageBody.vue";
+import PostPage from "./components/PostPage.vue";
+//import SignIn from "./components/SignIn.vue";
 // import Listings from "./components/Listings.vue";
 import Footer from "./components/Footer.vue";
 
@@ -19,8 +21,9 @@ export default {
   name: "App",
   components: {
     Header,
-    HomepageBody,
-    SignIn,
+  //  HomepageBody,
+   // SignIn,
+    PostPage,
     // Listings,
     Footer,
   },
