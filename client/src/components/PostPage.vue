@@ -2,69 +2,74 @@
 	<main>
 		<div>
 			<div>
-				<div></div>
 				<div>
 					<div>
-						<div></div>
+						<br/>
 						<h2 style="text-align: center">Add a new Item</h2>
-						<form>
+						<form id="postpage"> 
+							<br/>
 							<!-- Title -->
 							<div>
 								<label style="margin-bottom: 0px">Title</label>
-								<input type="text" style="width: 100%" />
+								<input type="text" style="width: 100%" name="title" v-model="title"/>
 							</div>
-
+							<br/>
+							<input type="checkbox" name="trucker" v-model="isTxt">
+							<label for="textbook">Is it a textbook?</label>
+							<br/>
+							<div id="divForTxt" v-show="isTxt">
 							<!-- Author -->
 							<div>
 								<label style="margin-bottom: 0px">Author</label>
-								<input type="text" style="width: 100%" />
+								<input type="text" style="width: 100%" name="author" v-model="author"/>
 							</div>
-
+							<br/>
 							<!-- ISBN number -->
 							<div>
 								<label style="margin-bottom: 0px">ISBN#</label>
-								<input type="text" style="width: 100%" />
+								<input type="text" style="width: 100%" name="isbnnum" v-model="isbnnum"/>
 							</div>
-
+							</div>
+							<br/>
 							<!-- Price Dropdown -->
 							<div>
 								<label style="margin-bottom: 0px">Price</label>
-								<input type="text" style="width: 100%" />
+								<input type="number" style="width: 100%" name="price" v-model="price"/>
 							</div>
-
+							<br/>
 							<!-- Description  -->
 							<div>
 								<label style="margin-bottom: 0px">Description</label>
-								<textarea placeholder="Provide details such as a item description" ></textarea>
+								<textarea placeholder="Provide details such as a item description" name="descript" v-model="descript"></textarea>
 							</div>
-
+							<br/>
 							<!-- Photo  -->
 							<div>
 								<label style="margin-bottom: 0px">Add photo</label>
 								<div>
-									<input type="file" />
+									<input type="photo" name="photo" v-model="photo"/>
 									
 								</div>
 							</div>
+							<br/>
 							<!-- button  -->
 							<hr style="width: 107%"/>
 							<div>
-								<span>
-									<span>
-										<span>Add item</span>
-									</span>
-								</span>
-							</div>
+								<button v-on:click="processForm()" type="button">Add Item</button>
+							</div>	
 						</form>
 					</div>
 				</div>
-				<div></div>
 			</div>
 		</div>
 	</main>
 </template>
 
 <style>
+
+form {
+	color: white;
+}
 
 
 textarea {
@@ -77,6 +82,25 @@ textarea {
 
 <script>
 export default {
-	
+	data: () => {
+		return {
+		title: "",
+		author: "",
+		isbnnum: "",
+		price: "",
+		descript: "",
+		photo: "",
+		isTxt: false
+		};
+	},
+
+	methods: {
+		processForm: function() {
+			console.log({title: this.title, 
+			author: this.author, isbnnum: this.isbnnum,
+			price: this.price, descript: this.descript, photo: this.photo});
+			alert('processing!');
+		}
+	}
 }
 </script>
