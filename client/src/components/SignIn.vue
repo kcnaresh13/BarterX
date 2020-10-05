@@ -87,20 +87,24 @@ export default {
 
     async createInfo() {
       await axios.get(url).then((res) => (this.info = res.data));
-
-      if (this.password == this.rePassword) {
-        for (var i = 0; i < this.info.length; i++) {
-          var current = this.info[i];
-          if (current.email == this.email) {
-            this.signUpMessage =
-              "Email address already exist. Please sign in using this email";
-            break;
+      if(this.email && this.username && this.password && this.rePassword){
+        if (this.password == this.rePassword) {
+          for (var i = 0; i < this.info.length; i++) {
+            var current = this.info[i];
+            if (current.email == this.email) {
+              this.signUpMessage =
+                "Email address already exist. Please sign in using this email";
+              break;
+            }
           }
+          await InfoService.insertInfo(this.username, this.email, this.password);
+          this.signUpMessage ="You have successfully registered "
+        } else {
+          this.signUpMessage = "Password doesnot match";
         }
-        await InfoService.insertInfo(this.username, this.email, this.password);
-        this.signUpMessage ="You have successfully registered "
-      } else {
-        this.signUpMessage = "Password doesnot match";
+      }
+      else{
+        this.signUpMessage = "Please provide all the info !!"
       }
     },
     async deleteInfo(id) {
