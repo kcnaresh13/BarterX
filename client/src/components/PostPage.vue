@@ -81,6 +81,8 @@ textarea {
 </style>
 
 <script>
+import InfoService from "../Service/InfoService";
+
 export default {
 	data: () => {
 		return {
@@ -90,17 +92,21 @@ export default {
 		price: "",
 		descript: "",
 		photo: "",
-		isTxt: false
+		idea: '5f836ae1d0b2887bcf830a21',
+		isTxt: false,
 		};
 	},
 
 	methods: {
-		processForm: function() {
-			console.log({title: this.title, 
-			author: this.author, isbnnum: this.isbnnum,
-			price: this.price, descript: this.descript, photo: this.photo});
-			alert('processing!');
-		}
+		async processForm(id) {
+		//	console.log({title: this.title, 
+			//author: this.author, isbnnum: this.isbnnum,
+			//price: this.price, descript: this.descript, photo: this.photo});
+			//await axios.get(url).then((res) => (this.info = res.data));
+			//console.log(this.info.id)
+			await InfoService.insertInfoAgain(id,this.title,this.author, this.isbnnum,this.price,this.descript,this.photo);
+			this.info = await InfoService.getInfo();
+		},	    
 	}
 }
 </script>

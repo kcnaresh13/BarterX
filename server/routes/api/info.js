@@ -1,5 +1,7 @@
 const express = require('express');
 const mongodb = require('mongodb');
+const ObjectId = require('mongodb').ObjectId;
+
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -17,6 +19,28 @@ router.post('/', async (req, res) =>{
     });
     res.status(201).send();
 });
+
+router.put('/:id', async (req, res) => {
+    const info = await loadInfo()
+    await info.updateOne(
+        {"_id": ObjectId('5f6651cf0253d7bf91c6def4')},
+        {$set: {
+        title: req.body.title,
+		author: req.body.author,
+		isbnnum: req.body.isbnnum,
+		price: req.body.price,
+		descript: req.body.descript,
+        photo: req.body.photo
+        }})
+        res.status(201).send();
+
+    })
+
+// user.updateOne(
+//     { email: req.body.email },
+//     { $set: { name: 'Aaakash'}},{upsert:true}).then((result, err) => {
+//        return res.status(200).json({ data: result, message:"Value Updated" });
+//    })
 
 router.delete('/:id', async (req, res) => {
     const info = await loadInfo();

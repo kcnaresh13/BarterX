@@ -13,7 +13,7 @@
 import Header from "./components/Header.vue";
 //import HomepageBody from "./components/HomepageBody.vue";
 import PostPage from "./components/PostPage.vue";
-//import SignIn from "./components/SignIn.vue";
+// import SignIn from "./components/SignIn.vue";
 // import Listings from "./components/Listings.vue";
 import Footer from "./components/Footer.vue";
 
@@ -22,7 +22,7 @@ export default {
   components: {
     Header,
   //  HomepageBody,
-   // SignIn,
+  //  SignIn,
     PostPage,
     // Listings,
     Footer,
