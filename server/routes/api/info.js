@@ -23,7 +23,7 @@ router.post('/', async (req, res) =>{
 router.put('/:id', async (req, res) => {
     const info = await loadInfo()
     await info.updateOne(
-        {"_id": ObjectId('5f6651cf0253d7bf91c6def4')},
+        {"_id": ObjectId(new mongodb.ObjectID(req.params.id))},
         {$set: {
         title: req.body.title,
 		author: req.body.author,
@@ -35,13 +35,6 @@ router.put('/:id', async (req, res) => {
         res.status(201).send();
 
     })
-
-// user.updateOne(
-//     { email: req.body.email },
-//     { $set: { name: 'Aaakash'}},{upsert:true}).then((result, err) => {
-//        return res.status(200).json({ data: result, message:"Value Updated" });
-//    })
-
 router.delete('/:id', async (req, res) => {
     const info = await loadInfo();
     await info.deleteOne({_id: new mongodb.ObjectID(req.params.id)});
