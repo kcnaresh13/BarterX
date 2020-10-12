@@ -8,16 +8,23 @@
 						<h2 style="text-align: center">Add a new Item</h2>
 						<form id="postpage"> 
 							<br/>
+							
+							
+							<label for="category">Category</label>
+							<select style="width: 100%" v-model="selected">  
+								<option disabled>Please select one</option>
+								<option v-for="option in options" v-bind:value="option.id" v-bind:key ="option.value">{{option.value}}</option>
+							</select>
+							<br/>
+							<br/>
 							<!-- Title -->
 							<div>
 								<label style="margin-bottom: 0px">Title</label>
 								<input type="text" style="width: 100%" name="title" v-model="title"/>
 							</div>
-							<br/>
-							<input type="checkbox" name="trucker" v-model="isTxt">
-							<label for="textbook">Is it a textbook?</label>
-							<br/>
-							<div id="divForTxt" v-show="isTxt">
+							
+							<div id="divForTxt" v-if="selected === 1">
+							<br/>	
 							<!-- Author -->
 							<div>
 								<label style="margin-bottom: 0px">Author</label>
@@ -25,11 +32,12 @@
 							</div>
 							<br/>
 							<!-- ISBN number -->
-							<div>
+							<div>	
 								<label style="margin-bottom: 0px">ISBN#</label>
 								<input type="text" style="width: 100%" name="isbnnum" v-model="isbnnum"/>
 							</div>
 							</div>
+							
 							<br/>
 							<!-- Price Dropdown -->
 							<div>
@@ -47,8 +55,10 @@
 							<div>
 								<label style="margin-bottom: 0px">Add photo</label>
 								<div>
-									<input type="photo" name="photo" v-model="photo"/>
-									
+									<input type="file" @change="previewImage" accept="image/*">				
+								</div>
+								<div v-if="imageData.length > 0">
+									<image class="preview" :src="imageData"></image>
 								</div>
 							</div>
 							<br/>
@@ -78,6 +88,12 @@ textarea {
 	height: 85px;
 }
 
+img.preview {
+	width: 200px;
+	background-color: white;
+	border: 1px solid #DDD;
+	padding: 5x;
+}
 </style>
 
 <script>
@@ -89,8 +105,10 @@ export default {
 		isbnnum: "",
 		price: "",
 		descript: "",
-		photo: "",
-		isTxt: false
+		imageData: "",
+		selected: "Please select one",
+		options: [{id:1, value: 'Textbook'},{id:2, value: 'Electronic'},{id:3, value: 'Other'}],
+		
 		};
 	},
 
@@ -100,6 +118,17 @@ export default {
 			author: this.author, isbnnum: this.isbnnum,
 			price: this.price, descript: this.descript, photo: this.photo});
 			alert('processing!');
+		},
+
+		previewImage: function(event) {
+			var input = event.target;
+			if(input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = (e) => {
+					this.imageData = e.target.result;
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
 		}
 	}
 }
