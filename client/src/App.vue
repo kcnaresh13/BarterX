@@ -3,7 +3,8 @@
     <Header @clicked="onClickChild" />
        <!-- <SignIn v-if="this.currentTab === 'login'"> </SignIn> -->
     <!-- <HomepageBody v-else /> -->
-    <PostPage />>
+    <PostPage />
+    <!-- <ProfilePage/> -->
     <!-- <Listings /> -->
     <Footer />
   </div>
@@ -11,6 +12,7 @@
 
 <script>
 import Header from "./components/Header.vue";
+// import ProfilePage from "./components/ProfilePage.vue";
 //import HomepageBody from "./components/HomepageBody.vue";
 import PostPage from "./components/PostPage.vue";
 // import SignIn from "./components/SignIn.vue";
@@ -24,6 +26,7 @@ export default {
   //  HomepageBody,
   //  SignIn,
     PostPage,
+    // ProfilePage,
     // Listings,
     Footer,
   },
@@ -42,7 +45,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;

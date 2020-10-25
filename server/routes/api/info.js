@@ -9,6 +9,12 @@ router.get('/', async (req, res) => {
     res.send(await info.find({}).toArray());
 });
 
+router.get('/:id', async (req, res) => {
+    const info = await loadInfo();
+    res.send(await info.findOne({ "_id": ObjectId(new mongodb.ObjectID(req.params.id))})
+    
+    )});
+
 router.post('/', async (req, res) =>{
     const info = await loadInfo();
     await info.insertOne({
@@ -41,7 +47,7 @@ router.delete('/:id', async (req, res) => {
     res.status(200).send();
 })
 
-async function loadInfo() {
+ async function loadInfo() {
     const client = await mongodb.MongoClient.connect('mongodb+srv://barterX123:barterX123@cluster0.hqcrg.mongodb.net/<dbname>?retryWrites=true&w=majority', {
         useNewUrlParser: true
     })

@@ -12,6 +12,16 @@ class InfoService {
         
     }
 
+     static getInfo1(id){
+        axios.get(`${url}${id}`)
+            .then(res => (this.info = res.data))
+            console.log(this.info)
+            return this.info
+        // const data =  await fetch(`${url}${id}`).json();
+        // return data;
+        
+    }
+
     static insertInfo(username, email, password){
          axios.post(url,
             {

@@ -15,7 +15,7 @@
           <!-- Author's Name -->
           <div class="author-name">
             by
-            <a href="#" class="author-link-name">Gayle Laakmann McDowell</a> (Author)
+            <a href="#" class="author-link-name"> {{this.author}}</a> (Author)
           </div>Length: 500 pages
           <p class="seller-name">Seller:</p>
         </div>
@@ -92,8 +92,32 @@
 </template>
 
 <script>
+//import InfoService from "../Service/InfoService";
+import axios from "axios";
+
+const url = "api/info/";
 export default {
-  title: "Listing Page",
+  data: function () {
+    return {
+      info: [],
+      id: '5f657368ae280b3fc8b2f150',
+      result: '',
+      title: '',
+      author: ''
+    };
+  },
+     methods: {
+    async onClickButton () {
+          await axios.get(`${url}${this.id}`).then((res) => (this.info = res.data));
+        // this.info =  InfoService.getInfo1(this.id);
+         console.log(this.info)
+         this.id = this.info.id
+         this.author = this.info.author
+         }
+         },
+  created () {
+    this.onClickButton();
+  },
 };
 </script>
 
