@@ -53,6 +53,7 @@ header {
   #signin-logout {
     display: block;
     margin-left: 32%;
+    margin-bottom: 12%;
     button {
       &:hover {
         color: #7ca971;

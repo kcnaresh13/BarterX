@@ -21,9 +21,19 @@ footer {
   text-align: center;
   clear: both;
   background-color: #16162d;
-  padding: 2rem 0;
-  margin-top: 12%;
+  /* padding: 2rem 0; */
+  margin-top: 63%;
+    position: absolute;
+
 }
+/* #footer {
+  position: relative;
+  margin-top: -180px;
+   negative value of footer height 
+  height: 180px;
+  clear: both;
+  background-color: red;
+} */
 
 p {
   font-size: 1.4rem;
