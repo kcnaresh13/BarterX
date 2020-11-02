@@ -9,7 +9,7 @@ export default {
   data() {
     return {
       footerText:
-        "<p>&copy: 2020 Kevin Claros | Naresh KC | Aaron Walsdorf | John Cho.",
+        "<p>&copy: 2020  BarterX  |  Kevin Claros | Naresh KC | Aaron Walsdorf | John Cho.",
     };
   },
 };
@@ -17,24 +17,15 @@ export default {
 
 <style scoped>
 footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
   width: 100%;
+  background-color:  #234e70;
+  color: #fbf8be;
   text-align: center;
-  clear: both;
-  background-color: #16162d;
-  /* padding: 2rem 0; */
-  margin-top: 63%;
-    position: absolute;
 
 }
-/* #footer {
-  position: relative;
-  margin-top: -180px;
-   negative value of footer height 
-  height: 180px;
-  clear: both;
-  background-color: red;
-} */
-
 p {
   font-size: 1.4rem;
 }

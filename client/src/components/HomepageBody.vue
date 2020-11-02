@@ -16,7 +16,9 @@
       <br />
 
       <br />
-      <h3>ACESSORIES</h3>
+      <br/>
+      <br/>
+      <!-- <h3>ACESSORIES</h3>
             <br />
 
       <img src="https://m.media-amazon.com/images/I/61u1IR857AL._AC_SS350_.jpg" />
@@ -26,7 +28,7 @@
       <br />
       <h3>TEXTBOOKS</h3>
       <br />
-      <img src="../assets/bioTextbook.jpg" />
+      <img src="../assets/bioTextbook.jpg" /> -->
     </div>
 
     <!-- <section class="contact" id="contact">
@@ -68,7 +70,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .contact {
   margin-top: 5%;
   text-align: center;
@@ -118,14 +120,17 @@ input[type="submit"]:hover {
 
 .body-image {
   margin-top: 0%;
+  height: 27rem;
+  width: 93rem;
 }
 
 .text {
   font-size: 25 px;
   text-align: center;
-  color: black;
+  color: #234e70;
   font-family: "Segoe UI", Tahoma;
   margin-bottom: 250 px;
+  background:#fbf8be ;
 }
 h3.text {
   margin-bottom: 50 px;

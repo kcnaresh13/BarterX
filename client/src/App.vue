@@ -1,34 +1,20 @@
 <template>
   <div id="app">
     <Header @clicked="onClickChild" />
-       <!-- <SignIn v-if="this.currentTab === 'login'"> </SignIn> -->
-    <!-- <HomepageBody v-else /> -->
-    <!-- <PostPage /> -->
-    <ProfilePage/>
-    <!-- <Listings /> -->
+   <router-view></router-view>
     <Footer />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-import ProfilePage from "./components/ProfilePage.vue";
-//import HomepageBody from "./components/HomepageBody.vue";
-// import PostPage from "./components/PostPage.vue";
-// import SignIn from "./components/SignIn.vue";
-// import Listings from "./components/Listings.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-  //  HomepageBody,
-  //  SignIn,
-    // PostPage,
-    ProfilePage,
-    // Listings,
-    Footer,
+    Footer
   },
   data: () => {
     return {

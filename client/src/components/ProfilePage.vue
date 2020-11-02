@@ -63,6 +63,8 @@
 </template>
 
 <script>
+import axios from "axios";
+const url = "api/info/";
 export default {
   data: () => {
 		return {
@@ -75,7 +77,24 @@ export default {
       major: "Computer Science",
       userRating: "4.8",
     };
-  }
+  },
+   methods: {
+    async onClickButton () {
+          await axios.get(`${url}${this.id}`).then((res) => (this.info = res.data));
+        // this.info =  InfoService.getInfo1(this.id);
+       this.name = this.info.name
+      this.schoolName = this.info.schoolName
+       this.dob = this.info.dob
+       this.major = this.info.major
+       this.email = this.info.email
+
+
+
+         }
+         },
+  created () {
+    this.onClickButton();
+  },
 }
 </script>
 
@@ -87,7 +106,7 @@ export default {
   --mdc-theme-background: #ffffff;
   position: absolute;
   margin-top:168px;
-  background-color: rgb(204, 140, 80);
+  background-color: #ddc6b6;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -96,7 +115,7 @@ export default {
 
 .HJg70a47_v {
   /* background-color: rgb(92, 104, 187); */
-  color: rgb(92, 104, 187);
+  color: #262223;
   position: absolute;
   font-size: 20px;
   width: 300px;
@@ -108,7 +127,7 @@ export default {
 
 .H1WQR64muP {
   /* background-color: rgb(92, 104, 187); */
-  color: rgb(92, 104, 187);
+  color: #262223;
   position: absolute;
   font-size: 20px;
   width: 300px;
@@ -121,7 +140,7 @@ export default {
   /* background-color: rgb(92, 104, 187); */
   position: absolute;
   font-size: 20px;
-  color: rgb(92, 104, 187);
+  color: #262223;
   width: 300px;
   height: 40px;
   top: 139px;
@@ -132,7 +151,7 @@ export default {
   /* background-color: rgb(92, 104, 187); */
   position: absolute;
   font-size: 20px;
-  color: rgb(92, 104, 187);
+  color: #262223;
   width: 300px;
   height: 40px;
   top: 73px;
@@ -143,7 +162,7 @@ export default {
   /* background-color: rgb(92, 104, 187); */
   position: absolute;
   font-size: 20px;
-  color: rgb(92, 104, 187);
+  color: #262223;
   width: 300px;
   height: 40px;
   top: 19px;
@@ -155,7 +174,7 @@ export default {
   text-overflow: ellipsis;
   text-align: left;
   font-size: 34px;
-  color: rgb(154, 68, 68);
+  color: #262223;
   font-style: inherit;
   text-decoration: inherit;
   position: absolute;
@@ -168,7 +187,7 @@ export default {
 .ry8XApN7_v {
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgb(154, 68, 68);
+  color: #262223;
   font-size: 35px;
   font-weight: inherit;
   text-decoration: inherit;
@@ -183,7 +202,7 @@ export default {
 .rkvXRaEQOw {
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgb(154, 68, 68);
+  color: #262223;
   font-size: 36px;
   position: absolute;
   width: 314px;
@@ -195,7 +214,7 @@ export default {
 .rJOQATV7uP {
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgb(154, 68, 68);
+  color: #262223;
   font-size: 33px;
   position: absolute;
   width: 209px;
@@ -207,7 +226,7 @@ export default {
 .SJFXC6VX_P {
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgb(154, 68, 68);
+  color: #262223;
   font-size: 37px;
   position: absolute;
   width: 190px;
@@ -218,7 +237,7 @@ export default {
 
 .Bkm06E7dD {
   overflow: hidden;
-  background-color: rgb(204, 140, 80);
+  background-color: #ddc6b6;
   position: absolute;
   width: 679px;
   height: 281px;
@@ -247,7 +266,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 33px;
-  color: rgb(255, 237, 138);
+  color: #262223;
   font-weight: bold;
   font-family: Roboto, sans-serif;
   position: absolute;
@@ -278,7 +297,7 @@ export default {
 .S1ZvQB7dD {
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgb(50, 67, 127);
+  color: #262223;
   font-size: 25px;
   text-align: center;
   position: absolute;
@@ -309,7 +328,7 @@ export default {
 .HkOi7S7Ov {
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgb(50, 67, 127);
+  color: #262223;
   font-weight: bold;
   position: absolute;
   width: 110px;
@@ -339,7 +358,7 @@ export default {
 .SygSpmBX_P {
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgb(50, 67, 127);
+  color: #262223;
   font-size: 25px;
   text-align: center;
   position: absolute;
@@ -370,7 +389,7 @@ export default {
 .H1x4EVrmuP {
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgb(50, 67, 127);
+  color: #262223;
   font-weight: bold;
   position: absolute;
   width: 113px;

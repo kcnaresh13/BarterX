@@ -5,26 +5,28 @@
     </div>
     <nav>
       <ul>
-        <li>Home</li>
-        <li>Buy</li>
-        <li>Sell</li>
-        <li>Barter</li>
-        <li>About</li>
+        <li><router-link to = "/"> Home</router-link></li>
+        <li><router-link to = "/list"> Buy</router-link></li>
+        <li><router-link to = "/post"> Sell</router-link></li>
+        <li><router-link to = "/profile"> Profile</router-link></li>
+        <li><router-link to = "/signin"> Sign In</router-link></li>
+        <li><router-link to = "/"> Log out</router-link></li>
+
       </ul>
     </nav>
     <div class="search">
       <input type="text" placeholder="Search for books, notes, school supplies ....." />
     </div>
-    <div  @click="onClickButton()" class="icons">
+    <!-- <div  @click="onClickButton()" class="icons">
       <v-icon style="font-size: 2.6rem;" class="fas fa-shopping-cart" id="shopping"></v-icon>
       <v-btn style="font-size: 2.6rem;" slot="badge" @click="show = !show">
         <v-icon style="font-size: 2.6rem;" class="fas fa-user" id="user"></v-icon>
       </v-btn>
       <div class="form-popup" v-show="show" id="signin-logout">
-        <button type="submit" class="btn">Login</button>
-        <button type="button" class="btn cancel">Log Out</button>
+        <button type="submit" class="btn"><router-link to = "signin">Login</router-link></button>
+        <button type="button" class="btn cancel"><router-link to = "/"> LogOut </router-link></button>
       </div>
-    </div>
+    </div> -->
   </header>
 </template>
 
@@ -50,21 +52,27 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  #signin-logout {
-    display: block;
-    margin-left: 32%;
-    margin-bottom: 12%;
-    button {
-      &:hover {
-        color: #7ca971;
-      }
-      width: 80px;
-      height: 20px;
-      color: #2c3e50;
-      font-size: 1rem;
-    }
+  // #signin-logout {
+  //   display: block;
+  //   margin-left: 32%;
+  //   margin-bottom: 12%;
+  //   color: yellow;
+  //   button {
+  //     &:hover {
+  //       color: #7ca971;
+  //     }
+  //     width: 80px;
+  //     height: 20px;
+  //     color: #2c3e50;
+  //     font-size: 1rem;
+  //   }
+  // }
+  a{
+  width: 100%;
+  color: #fbf8be;
+  text-align: center;
+  font-weight: bold;
   }
-
   .logo {
     margin-right: 80px;
     margin-left: 20px;
@@ -74,12 +82,11 @@ header {
   }
   display: flex;
   width: 100%;
-  // margin-bottom: 50px;
   clear: both;
   position: sticky;
   top: 0;
   left: 0px;
-  background-color: #16162d;
+  background-color: #234e70;
   padding: 1rem 0;
   ul {
     display: flex;
@@ -87,7 +94,7 @@ header {
     padding: 0;
     margin: 0 20px 0 0;
     li {
-      color: #2c3e50;
+      color:red;
       font-size: 1.5rem;
       padding: 2px 10px;
       cursor: pointer;
@@ -102,6 +109,7 @@ header {
     position: relative;
     width: 100%;
     max-width: 400px;
+    padding-top:34px;
     input {
       border: none;
       outline: none;
@@ -109,9 +117,10 @@ header {
       padding: 15px 60px 15px 20px;
       margin: 0;
       border-radius: 20px;
-      background-color: #efefef;
+      background-color: #fbf8be;
       font-family: "Segoe UI", Tahoma;
       font-size: 1rem;
+      color: #234e70
     }
   }
 

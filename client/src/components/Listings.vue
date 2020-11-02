@@ -5,7 +5,7 @@
       <div class="single-items">
         <div class="items">
           <div class="item-title">
-            <h1 class="author-title">Cracking The Conding Interview</h1>
+            <h1 class="author-title">{{this.mytitle}}</h1>
           </div>
           <div class="item-image">
             <a href="#">
@@ -100,10 +100,11 @@ export default {
   data: function () {
     return {
       info: [],
-      id: '5f657368ae280b3fc8b2f150',
+      id: '5f67e3c5597b0a0e53982fd2',
       result: '',
       title: '',
-      author: ''
+      author: '',
+      mytitle : ''
     };
   },
      methods: {
@@ -113,6 +114,9 @@ export default {
          console.log(this.info)
          this.id = this.info.id
          this.author = this.info.author
+         console.log(this.info.title)
+         this.mytitle = this.info.title
+
          }
          },
   created () {
