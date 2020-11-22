@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="postpage">
     <br />
     <h2 style="text-align: center">Add a new Item</h2>
-    <form id="postpage">
-      <br />
+    <!-- <form id="postpage">
+      <br /> -->
 
-      <label for="category">Category</label>
+      <label for="category">Category:  </label>
       <select v-model="selected">
         <option disabled>Please select one</option>
         <option
@@ -20,7 +20,7 @@
       <br />
       <!-- Title -->
       <div>
-        <label>Title</label>
+        <label>Title: </label>
         <input type="text" name="title" v-model="title" />
       </div>
 
@@ -28,7 +28,7 @@
         <br />
         <!-- Author -->
         <div>
-          <label>Author</label>
+          <label>Author: </label>
           <input
             type="text"
             name="author"
@@ -38,7 +38,7 @@
         <br />
         <!-- ISBN number -->
         <div>
-          <label>ISBN#</label>
+          <label>ISBN# </label>
           <input
             type="text"
             name="isbnnum"
@@ -50,13 +50,13 @@
       <br />
       <!-- Price Dropdown -->
       <div>
-        <label>Price</label>
+        <label>Price: </label>
         <input type="number" style="width: 100%" name="price" v-model="price" />
       </div>
       <br />
       <!-- Description  -->
       <div>
-        <label>Description</label>
+        <label>Description: </label>
         <textarea
           placeholder="Provide details such as a item description"
           name="descript"
@@ -80,13 +80,15 @@
       <div>
         <button v-on:click="processForm()" type="button">Add Item</button>
       </div>
-    </form>
+    <!-- </form> -->
   </div>
 </template>
 
-<style>
-form {
-  color: white;
+<style scoped>
+.postpage{
+  color: #fbf8be;
+  background-color: #234e70;
+  height: 550px;
 }
 textarea {
   resize: vertical;
@@ -94,9 +96,6 @@ textarea {
   height: 85px;
 }
 
-label {
-  color: black;
-}
 img.preview {
   width: 200px;
   background-color: white;

@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="page-name">
     <title>{{title}}</title>
     <!-- <div class="container"> -->
       <div class="single-items">
@@ -128,8 +128,10 @@ export default {
 
 <style>
 .page-name {
-  margin-bottom: 15%;
-  font-size: 2rem;
+  background-color: #fbf8be; 
+  width:500px;
+  align-items: center;
+  text-align: center;
 }
 
 .items {
