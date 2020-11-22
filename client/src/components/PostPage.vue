@@ -6,7 +6,7 @@
       <br />
 
       <label for="category">Category</label>
-      <select style="width: 100%" v-model="selected">
+      <select v-model="selected">
         <option disabled>Please select one</option>
         <option
           v-for="option in options"
@@ -20,18 +20,17 @@
       <br />
       <!-- Title -->
       <div>
-        <label style="margin-bottom: 0px">Title</label>
-        <input type="text" style="width: 100%" name="title" v-model="title" />
+        <label>Title</label>
+        <input type="text" name="title" v-model="title" />
       </div>
 
       <div id="divForTxt" v-if="selected === 1">
         <br />
         <!-- Author -->
         <div>
-          <label style="margin-bottom: 0px">Author</label>
+          <label>Author</label>
           <input
             type="text"
-            style="width: 100%"
             name="author"
             v-model="author"
           />
@@ -39,10 +38,9 @@
         <br />
         <!-- ISBN number -->
         <div>
-          <label style="margin-bottom: 0px">ISBN#</label>
+          <label>ISBN#</label>
           <input
             type="text"
-            style="width: 100%"
             name="isbnnum"
             v-model="isbnnum"
           />
@@ -52,13 +50,13 @@
       <br />
       <!-- Price Dropdown -->
       <div>
-        <label style="margin-bottom: 0px">Price</label>
+        <label>Price</label>
         <input type="number" style="width: 100%" name="price" v-model="price" />
       </div>
       <br />
       <!-- Description  -->
       <div>
-        <label style="margin-bottom: 0px">Description</label>
+        <label>Description</label>
         <textarea
           placeholder="Provide details such as a item description"
           name="descript"
@@ -68,7 +66,7 @@
       <br />
       <!-- Photo  -->
       <div>
-        <label style="margin-bottom: 0px">Add photo</label>
+        <label>Add photo</label>
         <div>
           <input type="file" @change="previewImage" accept="image/*" />
         </div>
@@ -78,7 +76,7 @@
       </div>
       <br />
       <!-- button  -->
-      <hr style="width: 107%" />
+      <hr/>
       <div>
         <button v-on:click="processForm()" type="button">Add Item</button>
       </div>

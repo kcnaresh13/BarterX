@@ -1,7 +1,7 @@
 <template>
   <main>
     <title>{{title}}</title>
-    <div class="container">
+    <!-- <div class="container"> -->
       <div class="single-items">
         <div class="items">
           <div class="item-title">
@@ -20,7 +20,7 @@
           <p class="seller-name">Seller:</p>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
 
     <!--------------------Items-------------------->
     <div class="single-items">
@@ -104,17 +104,18 @@ export default {
       result: '',
       title: '',
       author: '',
-      mytitle : ''
+      mytitle : '',
+      seller: 'unknown'
     };
   },
      methods: {
     async onClickButton () {
           await axios.get(`${url}${this.id}`).then((res) => (this.info = res.data));
         // this.info =  InfoService.getInfo1(this.id);
-         console.log(this.info)
+        // console.log(this.info)
          this.id = this.info.id
          this.author = this.info.author
-         console.log(this.info.title)
+        // console.log(this.info.title)
          this.mytitle = this.info.title
 
          }
