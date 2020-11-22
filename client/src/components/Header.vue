@@ -5,17 +5,19 @@
     </div>
     <nav>
       <ul>
-        <li><router-link to = "/"> Home</router-link></li>
-        <li><router-link to = "/list"> Buy</router-link></li>
-        <li><router-link to = "/post"> Sell</router-link></li>
-        <li><router-link to = "/profile"> Profile</router-link></li>
-        <li><router-link to = "/signin"> Sign In</router-link></li>
-        <li><router-link to = "/"> Log out</router-link></li>
-
+        <li><router-link to="/"> Home</router-link></li>
+        <li><router-link to="/list"> Buy</router-link></li>
+        <li><router-link to="/post"> Sell</router-link></li>
+        <li><router-link to="/profile"> Profile</router-link></li>
+        <li v-if="showSignInLink"><router-link to="/signin"> Sign In</router-link></li>
+        <li v-if="showLogOutLink"><a href="#" @click="onlogout_click()"> Log out</a></li>
       </ul>
     </nav>
     <div class="search">
-      <input type="text" placeholder="Search for books, notes, school supplies ....." />
+      <input
+        type="text"
+        placeholder="Search for books, notes, school supplies ....."
+      />
     </div>
     <!-- <div  @click="onClickButton()" class="icons">
       <v-icon style="font-size: 2.6rem;" class="fas fa-shopping-cart" id="shopping"></v-icon>
@@ -31,22 +33,34 @@
 </template>
 
 <script>
+import cookies from "js-cookie";
+import { isSignedIn } from '../util';
 export default {
   data: function () {
     return {
       show: false,
     };
   },
-     methods: {
-     onClickButton (event) {
-        if(event != 'login')
-        this.$emit('clicked', 'login')
-        else{
-            this.$emit('clicked', 'home')
-
-        }
-     }
-   }
+  computed: {
+    showSignInLink(){
+      return !isSignedIn();
+    },
+    showLogOutLink(){
+      return isSignedIn();
+    }
+  },
+  methods: {
+    onlogout_click() {
+      cookies.remove("sessionCookie");
+      window.location.reload()
+    },
+    onClickButton(event) {
+      if (event != "login") this.$emit("clicked", "login");
+      else {
+        this.$emit("clicked", "home");
+      }
+    },
+  },
 };
 </script>
 
@@ -67,11 +81,11 @@ header {
   //     font-size: 1rem;
   //   }
   // }
-  a{
-  width: 100%;
-  color: #fbf8be;
-  text-align: center;
-  font-weight: bold;
+  a {
+    width: 100%;
+    color: #fbf8be;
+    text-align: center;
+    font-weight: bold;
   }
   .logo {
     margin-right: 80px;
@@ -94,7 +108,7 @@ header {
     padding: 0;
     margin: 0 20px 0 0;
     li {
-      color:red;
+      color: red;
       font-size: 1.5rem;
       padding: 2px 10px;
       cursor: pointer;
@@ -109,7 +123,7 @@ header {
     position: relative;
     width: 100%;
     max-width: 400px;
-    padding-top:34px;
+    padding-top: 34px;
     input {
       border: none;
       outline: none;
@@ -120,7 +134,7 @@ header {
       background-color: #fbf8be;
       font-family: "Segoe UI", Tahoma;
       font-size: 1rem;
-      color: #234e70
+      color: #234e70;
     }
   }
 
