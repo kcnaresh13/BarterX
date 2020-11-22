@@ -17,7 +17,7 @@
             by
             <a href="#" class="author-link-name"> {{this.author}}</a> (Author)
           </div>Length: 500 pages
-          <p class="seller-name">Seller:</p>
+          <p class="seller-name">Seller: {{this.name}}</p>
         </div>
       </div>
     <!-- </div> -->
@@ -105,7 +105,8 @@ export default {
       title: '',
       author: '',
       mytitle : '',
-      seller: 'unknown'
+      seller: 'unknown',
+      name: ''
     };
   },
      methods: {
@@ -115,8 +116,9 @@ export default {
         // console.log(this.info)
          this.id = this.info.id
          this.author = this.info.author
-        // console.log(this.info.title)
+         console.log(this.info.username)
          this.mytitle = this.info.title
+         this.name = this.info.name
 
          }
          },
