@@ -1,7 +1,7 @@
 <template>
-  <main>
+  <main class="page-name">
     <title>{{title}}</title>
-    <div class="container">
+    <!-- <div class="container"> -->
       <div class="single-items">
         <div class="items">
           <div class="item-title">
@@ -17,10 +17,10 @@
             by
             <a href="#" class="author-link-name"> {{this.author}}</a> (Author)
           </div>Length: 500 pages
-          <p class="seller-name">Seller:</p>
+          <p class="seller-name">Seller: {{this.name}}</p>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
 
     <!--------------------Items-------------------->
     <div class="single-items">
@@ -104,18 +104,21 @@ export default {
       result: '',
       title: '',
       author: '',
-      mytitle : ''
+      mytitle : '',
+      seller: 'unknown',
+      name: ''
     };
   },
      methods: {
     async onClickButton () {
           await axios.get(`${url}${this.id}`).then((res) => (this.info = res.data));
         // this.info =  InfoService.getInfo1(this.id);
-         console.log(this.info)
+        // console.log(this.info)
          this.id = this.info.id
          this.author = this.info.author
-         console.log(this.info.title)
+         console.log(this.info.username)
          this.mytitle = this.info.title
+         this.name = this.info.name
 
          }
          },
@@ -127,8 +130,10 @@ export default {
 
 <style>
 .page-name {
-  margin-bottom: 15%;
-  font-size: 2rem;
+  background-color: #fbf8be; 
+  width:500px;
+  align-items: center;
+  text-align: center;
 }
 
 .items {
