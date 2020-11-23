@@ -97,7 +97,7 @@ export default {
 
     async createInfo() {
       await axios.get(url).then((res) => (this.info = res.data));
-      if(this.email && this.username && this.password && this.rePassword){
+      if (this.email && this.username && this.password && this.rePassword) {
         if (this.password == this.rePassword) {
           for (var i = 0; i < this.info.length; i++) {
             var current = this.info[i];
@@ -107,14 +107,17 @@ export default {
               break;
             }
           }
-          await InfoService.insertInfo(this.username, this.email, this.password);
-          this.signUpMessage ="You have successfully registered "
+          await InfoService.insertInfo(
+            this.username,
+            this.email,
+            this.password
+          );
+          this.signUpMessage = "You have successfully registered ";
         } else {
           this.signUpMessage = "Password doesnot match";
         }
-      }
-      else{
-        this.signUpMessage = "Please provide all the info !!"
+      } else {
+        this.signUpMessage = "Please provide all the info !!";
       }
     },
     async deleteInfo(id) {
@@ -129,7 +132,8 @@ export default {
 .container {
   margin-top: 5%;
   display: block;
-  margin-bottom: 8%;
+  margin-bottom: 100%;
+  margin-top: 20%;
   position: relative;
   width: 688px;
   height: 400px;

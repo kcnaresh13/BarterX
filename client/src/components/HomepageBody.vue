@@ -4,31 +4,38 @@
       <!--
 <p style="text-align:right"> BarterX does allows Hofstra students to trade items of all types with each other. </p> 
       -->
+
       <img src="https://miro.medium.com/max/5800/1*v7_agl7Ldy4nIHjw-sfvHQ.png" class="body-image" />
-      <br />
-      <br />
-      <br />
-      <h2>BarterX allows Hofstra students to trade items of all types with each other.</h2>
-      <br />
+      <div class="body-images">
+        <br />
+        <br />
+        <br />
+        <h2>BarterX allows Hofstra students to trade items of all types with each other.</h2>
+        <br />
 
-      <h2>We provide a money back guarantee if any products are not recieved as advertised.</h2>
-      <br />
-      <br />
+        <h2>We provide a money back guarantee if any products are not recieved as advertised.</h2>
+        <br />
+        <br />
+        <h3 id="im">ELECTRONICS</h3>
+        <br />
 
-      <br />
-      <br/>
-      <br/>
-      <!-- <h3>ACESSORIES</h3>
-            <br />
+        <img class="myim" src="../assets/macbook.jpg" />
+        <br />
+        <br />
+        <br />
+        <br />
 
-      <img src="https://m.media-amazon.com/images/I/61u1IR857AL._AC_SS350_.jpg" />
-      <br />
-      <br />
-      <br />
-      <br />
-      <h3>TEXTBOOKS</h3>
-      <br />
-      <img src="../assets/bioTextbook.jpg" /> -->
+        <h3>TEXTBOOKS</h3>
+        <br />
+        <img src="../assets/coding-book.png" />
+        <br />
+        <br />
+        <br />
+        <br />
+        <h3>OTHER ITEMS</h3>
+        <br />
+        <img src="../assets/desk.jpg" />
+      </div>
     </div>
 
     <!-- <section class="contact" id="contact">
@@ -62,7 +69,7 @@
           <input type="submit" value="Submit" />
         </form>
       </div>
-    </section> -->
+    </section>-->
   </div>
 </template>
 
@@ -130,7 +137,7 @@ input[type="submit"]:hover {
   color: #234e70;
   font-family: "Segoe UI", Tahoma;
   margin-bottom: 250 px;
-  background:#fbf8be ;
+  background: #fbf8be;
 }
 h3.text {
   margin-bottom: 50 px;
@@ -138,5 +145,9 @@ h3.text {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.myim {
+  max-width: 40%;
 }
 </style>

@@ -84,25 +84,7 @@
   </div>
 </template>
 
-<style scoped>
-.postpage{
-  color: #fbf8be;
-  background-color: #234e70;
-  height: 550px;
-}
-textarea {
-  resize: vertical;
-  width: 107%;
-  height: 85px;
-}
 
-img.preview {
-  width: 200px;
-  background-color: white;
-  border: 1px solid #ddd;
-  padding: 5x;
-}
-</style>
 
 <script>
 //import InfoService from "../Service/InfoService";
@@ -157,3 +139,29 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+*{
+  margin: 0;
+}
+.postpage{
+  color: #fbf8be;
+  background-color: #234e70;
+  position: relative;
+  height: 1050px;
+
+}
+textarea {
+  resize: vertical;
+  width: 107%;
+  height: 85px;
+}
+
+img.preview {
+  width: 200px;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 5x;
+}
+</style>
