@@ -50,6 +50,11 @@
 <script>
 import InfoService from "../Service/InfoService";
 import axios from "axios";
+import cookies from "js-cookie"
+import {isSignedIn} from "../util";
+
+
+
 
 const url = "api/info/";
 
@@ -68,6 +73,7 @@ export default {
   },
   async created() {
     console.log("created");
+    isSignedIn();
   },
   methods: {
     async signIn() {
@@ -77,6 +83,10 @@ export default {
         var current = this.info[i];
         if (current.email == this.email && current.password == this.password) {
           this.signInMessage = "Congratulations, you are signed in !!";
+          cookies.set("sessionCookie", {email:current.email,id:current._id,userName:current.userName});
+         
+          window.location.reload()
+
           break;
         } else {
           this.signInMessage =
