@@ -64,13 +64,15 @@
 
 <script>
 import axios from "axios";
+import cookies from "js-cookie";
 const url = "api/info/";
 export default {
   data: () => {
 		return {
 			id: '5f67e3c5597b0a0e53982fd2',
 			Listingtitle: "JAVA BOOK",
-			name: "John Doe",
+      name: "John Doe",
+     
 			email: "johndoe@gmail.com",
 			schoolName: "Hofstra University",
 			dob: "june 20 2000",
@@ -81,12 +83,14 @@ export default {
    methods: {
     async onClickButton () {
           await axios.get(`${url}${this.id}`).then((res) => (this.info = res.data));
-        // this.info =  InfoService.getInfo1(this.id);
-       this.name = this.info.name
+       var profileId=cookies.getJSON("sessionCookie")
+       this.name = profileId.userName;
       this.schoolName = this.info.schoolName
        this.dob = this.info.dob
        this.major = this.info.major
-       this.email = this.info.email
+       
+       console.log(profileId.userName)
+       this.email= profileId.email;
 
 
 
@@ -94,6 +98,9 @@ export default {
          },
   created () {
     this.onClickButton();
+    //var profileId=cookies.getJSON("sessionCookie")
+    //console.log(profileId.email)
+    //this.email= profileId.email;
   },
 }
 </script>

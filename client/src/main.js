@@ -12,6 +12,8 @@ import HomepageBody from "./components/HomepageBody.vue";
 import PostPage from "./components/PostPage.vue";
 import SignIn from "./components/SignIn.vue";
 import Listings from "./components/Listings.vue";
+import {isSignedIn} from './util';
+import cookies from 'js-cookie';
 
 library.add(faUserSecret);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
@@ -30,7 +32,32 @@ const router = new VueRouter({
     mode: 'history'
 });
 
+const hook = function(intendedDestination,from, next){
 
+    console.log(intendedDestination.path)
+        
+    if (!isSignedIn() && intendedDestination.path=== "/profile"){
+        next('/signin') 
+        setTimeout(() => {
+            alert("Please sign in")
+        }, (100));
+        
+        
+        
+    }else if(intendedDestination.path=== "/logout")
+    {
+        cookies.remove("sessionCookie");
+          //cookieManager.isSignedIn = false;
+          console.log("logout")
+          next("/signin")
+    }
+    
+    else{
+        next()
+    }
+    } 
+    
+    router.beforeEach(hook)
 
 new Vue({
     render: (h) => h(App),

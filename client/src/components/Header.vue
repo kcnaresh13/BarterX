@@ -108,15 +108,9 @@ header {
     padding: 0;
     margin: 0 20px 0 0;
     li {
-<<<<<<< HEAD
-      color: red;
-      font-size: 1.5rem;
-      padding: 2px 10px;
-=======
       color:red;
       font-size: 2.5rem;
       padding: 2px 14px;
->>>>>>> 30ca7b9efa9eb6a35d015c226dffa14bd195c496
       cursor: pointer;
       &:hover {
         color: #7ca971;

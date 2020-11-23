@@ -84,7 +84,8 @@ export default {
         if (current.email == this.email && current.password == this.password) {
           this.signInMessage = "Congratulations, you are signed in !!";
           cookies.set("sessionCookie", {email:current.email,id:current._id,userName:current.userName});
-          
+         
+          window.location.reload()
 
           break;
         } else {
