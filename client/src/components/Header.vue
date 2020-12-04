@@ -23,7 +23,7 @@
         <li v-if="showLogOutLink">
           <a href="#" @click="onlogout_click()">Log out</a>
         </li>
-      </ul>
+      </ul> 
     </nav>
     <div class="search">
       <input
