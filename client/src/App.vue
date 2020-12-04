@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @clicked="onClickChild" />
-   <router-view></router-view>
+    <router-view></router-view>
     <Footer />
   </div>
 </template>
@@ -14,20 +14,19 @@ export default {
   name: "App",
   components: {
     Header,
-    Footer
+    Footer,
   },
   data: () => {
     return {
-    currentTab: 'home',
-    }
-
+      currentTab: "home",
+    };
   },
   methods: {
-      onClickChild (value) {
-      this.currentTab = value
-      console.log(this.currentTab)
-      }
-  }
+    onClickChild(value) {
+      this.currentTab = value;
+      console.log(this.currentTab);
+    },
+  },
 };
 </script>
 
@@ -58,7 +57,5 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  background-color: #234e70;
 }
 </style>

@@ -2,28 +2,28 @@
   <main class="page-name">
     <title>{{title}}</title>
     <!-- <div class="container"> -->
-    <div class="single-items">
+    <div class="single-items" v-for="(obj,index) in result" :key="index">
       <div class="items">
         <div class="item-title">
-          <h1 class="author-title">{{this.mytitle}}</h1>
+          <h1 class="author-title">{{obj.title}}</h1>
         </div>
         <div class="item-image">
           <a href="#">
             <img src="../assets/coding-book.png" width="100px" height="150px" class="img-fluid" />
           </a>
         </div>
-        <p>By: {{this.author}}</p>
-        <p>ISBN: {{this.isbnnum}}</p>
-        <p>Price: ${{this.price}}</p>
-        <p>Description: {{this.descript}}</p>
-        <p>Seller: {{this.name}}</p>
+        <p>By: {{obj.author}}</p>
+        <p>ISBN: {{obj.isbnnum}}</p>
+        <p>Price: ${{obj.price}}</p>
+        <p>Description: {{obj.descript}}</p>
+        <p>Seller: {{obj.name}}</p>
       </div>
       <hr />
     </div>
     <!-- </div> -->
 
     <!--------------------Items-------------------->
-    <div class="single-items">
+    <!-- <div class="single-items">
       <div class="items">
         <div class="item-title">
           <h1 class="author-title">2020 Macbook Pro</h1>
@@ -38,11 +38,11 @@
         <p>Seller: {{this.name}}</p>
       </div>
       <hr />
-    </div>
+    </div>-->
 
     <!--------------------Items-------------------->
 
-    <div class="single-items">
+    <!-- <div class="single-items">
       <div class="items">
         <div class="item-title">
           <h1 class="author-title">Desk</h1>
@@ -56,7 +56,7 @@
         <p>small desk for bedroom</p>
         <p>Seller: {{this.name}}</p>
       </div>
-    </div>
+    </div>-->
   </main>
 </template>
 
@@ -83,17 +83,18 @@ export default {
   },
   methods: {
     async onClickButton() {
-      await axios.get(`${url}${this.id}`).then((res) => (this.info = res.data));
+      await axios.get(`${url}`).then((res) => (this.result = res.data));
+      console.log(this.result);
       // this.info =  InfoService.getInfo1(this.id);
       // console.log(this.info)
-      this.id = this.info.id;
-      this.author = this.info.author;
-      console.log(this.info.username);
-      this.mytitle = this.info.title;
-      this.name = this.info.name;
-      this.isbnnum = this.info.isbnnum;
-      this.price = this.info.price;
-      this.descript = this.info.descript;
+      // this.id = this.info.id;
+      // this.author = this.info.author;
+      // console.log(this.info.username);
+      // this.mytitle = this.info.title;
+      // this.name = this.info.name;
+      // this.isbnnum = this.info.isbnnum;
+      // this.price = this.info.price;
+      // this.descript = this.info.descript;
     },
   },
   created() {

@@ -5,54 +5,72 @@
     </div>
     <nav>
       <ul>
-        <li><router-link to="/"> Home</router-link></li>
-        <li><router-link to="/list"> Buy</router-link></li>
-        <li><router-link to="/post"> Sell</router-link></li>
-        <li><router-link to="/profile"> Profile</router-link></li>
-        <li v-if="showSignInLink"><router-link to="/signin"> Sign In</router-link></li>
-        <li v-if="showLogOutLink"><a href="#" @click="onlogout_click()"> Log out</a></li>
+        <li>
+          <router-link to="/">Home</router-link>
+        </li>
+        <li>
+          <router-link to="/list">Buy</router-link>
+        </li>
+        <li>
+          <router-link to="/post">Sell</router-link>
+        </li>
+        <li>
+          <router-link to="/profile">Profile</router-link>
+        </li>
+        <li v-if="showSignInLink">
+          <router-link to="/signin">Sign In</router-link>
+        </li>
+        <li v-if="showLogOutLink">
+          <a href="#" @click="onlogout_click()">Log out</a>
+        </li>
       </ul>
     </nav>
     <div class="search">
       <input
         type="text"
+        v-model="search"
         placeholder="Search for books, notes, school supplies ....."
+        @keyup.enter="showSearchPage()"
       />
-    </div>
-    <!-- <div  @click="onClickButton()" class="icons">
-      <v-icon style="font-size: 2.6rem;" class="fas fa-shopping-cart" id="shopping"></v-icon>
-      <v-btn style="font-size: 2.6rem;" slot="badge" @click="show = !show">
-        <v-icon style="font-size: 2.6rem;" class="fas fa-user" id="user"></v-icon>
-      </v-btn>
-      <div class="form-popup" v-show="show" id="signin-logout">
-        <button type="submit" class="btn"><router-link to = "signin">Login</router-link></button>
-        <button type="button" class="btn cancel"><router-link to = "/"> LogOut </router-link></button>
+
+      <div v-for="inf in info" :key="inf.id" class="single-item">
+        <!-- <h1>{{filteredItems}}</h1> -->
       </div>
-    </div> -->
+    </div>
   </header>
 </template>
 
 <script>
 import cookies from "js-cookie";
-import { isSignedIn } from '../util';
+import { isSignedIn } from "../util";
+import axios from "axios";
+const url = "api/info/";
 export default {
   data: function () {
     return {
+      info: [],
+      id: "5f67e3c5597b0a0e53982fd2",
+      result: "",
+      title: "",
+      author: "",
+      mytitle: "",
       show: false,
+      search: "",
     };
   },
+
   computed: {
-    showSignInLink(){
+    showSignInLink() {
       return !isSignedIn();
     },
-    showLogOutLink(){
+    showLogOutLink() {
       return isSignedIn();
-    }
+    },
   },
   methods: {
     onlogout_click() {
       cookies.remove("sessionCookie");
-      window.location.reload()
+      window.location.reload();
     },
     onClickButton(event) {
       if (event != "login") this.$emit("clicked", "login");
@@ -60,27 +78,35 @@ export default {
         this.$emit("clicked", "home");
       }
     },
+    async onClickButton2() {
+      await axios.get(`${url}${this.id}`).then((res) => (this.info = res.data));
+      this.id = this.info.id;
+      console.log(this.in);
+      this.author = this.info.author;
+      this.mytitle = this.info.title;
+      console.log("Click");
+    },
+    showSearchPage() {
+      if (this.search != "")
+        this.$router.push({
+          name: "search",
+          params: { searchText: this.search },
+        });
+    },
+  },
+  created() {
+    axios.get(`${url}${this.id}`).then((res) => (this.info = res.data));
+    this.id = this.info.id;
+    console.log(this.in);
+    this.author = this.info.author;
+    this.mytitle = this.info.title;
+    console.log("Click");
   },
 };
 </script>
 
 <style lang="scss" scoped>
 header {
-  // #signin-logout {
-  //   display: block;
-  //   margin-left: 32%;
-  //   margin-bottom: 12%;
-  //   color: yellow;
-  //   button {
-  //     &:hover {
-  //       color: #7ca971;
-  //     }
-  //     width: 80px;
-  //     height: 20px;
-  //     color: #2c3e50;
-  //     font-size: 1rem;
-  //   }
-  // }
   a {
     width: 100%;
     color: #fbf8be;
@@ -98,8 +124,9 @@ header {
   width: 100%;
   clear: both;
   position: sticky;
+  margin-top: 0%;
   top: 0;
-  left: 0px;
+  left: 0;
   background-color: #234e70;
   padding: 1rem 0;
   ul {
@@ -108,9 +135,9 @@ header {
     padding: 0;
     margin: 0 20px 0 0;
     li {
-      color:red;
-      font-size: 2.5rem;
-      padding: 2px 14px;
+      color: red;
+      font-size: 1.5rem;
+      padding: 2px 10px;
       cursor: pointer;
       &:hover {
         color: #7ca971;

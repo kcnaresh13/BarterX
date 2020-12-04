@@ -102,6 +102,7 @@ export default {
       descript: "",
       photo: "",
       isTxt: false,
+      email: "",
       imageData: "",
       selected: "Please select one",
       options: [
@@ -122,8 +123,9 @@ export default {
         price: this.price,
         descript: this.descript,
         photo: this.photo,
+        email: this.email,
       });
-      alert("processing!");
+      alert("Added new Item!");
     },
 
     previewImage: function (event) {
