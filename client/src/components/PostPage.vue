@@ -4,9 +4,10 @@
     <h2 style="text-align: center">Add a new Item</h2>
     <!-- <form id="postpage">
       <br /> -->
-
+      <br/>
+      <div class ="center">
       <label for="category">Category:  </label>
-      <select v-model="selected">
+      <select v-model="selected" style="height: 30px; width: 100%; border-radius:15px;">
         <option disabled>Please select one</option>
         <option
           v-for="option in options"
@@ -19,9 +20,9 @@
       <br />
       <br />
       <!-- Title -->
-      <div>
+      <div style="align-items: center;">
         <label>Title: </label>
-        <input type="text" name="title" v-model="title" />
+        <input type="text" name="title" v-model="title" style="align-items: center; height: 30px; width:100%; border-radius: 15px;"/>
       </div>
 
       <div id="divForTxt" v-if="selected === 1">
@@ -32,6 +33,7 @@
           <input
             type="text"
             name="author"
+            style="height: 30px; border-radius:15px; width:100%;"
             v-model="author"
           />
         </div>
@@ -42,6 +44,7 @@
           <input
             type="text"
             name="isbnnum"
+            style="height: 30px; border-radius:15px; width:100%;"
             v-model="isbnnum"
           />
         </div>
@@ -51,7 +54,7 @@
       <!-- Price Dropdown -->
       <div>
         <label>Price: </label>
-        <input type="number" style="width: 100%" name="price" v-model="price" />
+        <input type="number" style="height: 30px; width: 100%; border-radius:15px;" name="price" v-model="price" />
       </div>
       <br />
       <!-- Description  -->
@@ -81,6 +84,7 @@
         <button v-on:click="processForm()" type="button">Add Item</button>
       </div>
     <!-- </form> -->
+    </div>
   </div>
 </template>
 
@@ -148,16 +152,19 @@ export default {
   margin: 0;
 }
 .postpage{
-  color: #fbf8be;
-  background-color: #234e70;
+  padding: 20px;
+  color: #234e70;
+  background-color: #fbf8be;
   position: relative;
-  height: 1050px;
+  height: 700px;
+  width: 97.9%;
 
 }
 textarea {
   resize: vertical;
-  width: 107%;
+  width: 100%;
   height: 85px;
+  border-radius: 15px;
 }
 
 img.preview {
@@ -165,5 +172,12 @@ img.preview {
   background-color: white;
   border: 1px solid #ddd;
   padding: 5x;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+ 
+  padding: 10px;
 }
 </style>
