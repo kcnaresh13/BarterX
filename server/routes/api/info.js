@@ -9,6 +9,12 @@ router.get('/', async (req, res) => {
     res.send(await info.find({}).toArray());
 });
 
+router.get('/search/:keyword', async(req, res) => {
+    const info = await loadInfo();
+    const keyword = req.params.keyword;
+    res.send(await info.find({}).toArray());
+});
+
 router.get('/:id', async (req, res) => {
     const info = await loadInfo();
     res.send(await info.findOne({ "_id": ObjectId(new mongodb.ObjectID(req.params.id))})
